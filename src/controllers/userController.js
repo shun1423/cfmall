@@ -63,7 +63,7 @@ export const postLogin = async (req, res) => {
 };
 
 export const startGithubLogin = (req, res) => {
-  const baseUrl = `http://github.com/login/oauth/authorize`;
+  const baseUrl = "http://github.com/login/oauth/authorize";
   const config = {
     client_id: process.env.GH_CLIENT,
     allow_signup: false,
@@ -75,7 +75,7 @@ export const startGithubLogin = (req, res) => {
 };
 
 export const finishGithubLogin = async (req, res) => {
-  const baseUrl = `http://github.com/login/oauth/access_token`;
+  const baseUrl = "http://github.com/login/oauth/access_token";
 
   const config = {
     client_id: process.env.GH_CLIENT,
@@ -117,7 +117,7 @@ export const finishGithubLogin = async (req, res) => {
     }
     let user = await User.findOne({ email: emailObj.email });
     if (!user) {
-      const user = await User.create({
+      user = await User.create({
         avatarUrl: userData.avatar_url,
         name: userData.name,
         username: userData.login,
