@@ -10,12 +10,19 @@
     padding: 0px 15px;
   }
   .video-mixin__title {
-    font-size: 16px;
+    font-size: 14px;
     display: block;
     margin-top: 10px;
   }
   .video-mixin__meta {
     margin: top 10px;
-    font-size: 12px;
+    font-size: 8px;
   }
+}
+
+.video-user__data {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  border-radius: 70%;
 }

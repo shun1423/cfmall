@@ -9,10 +9,14 @@ import {
   getChangePassword,
   postChangePassword,
 } from "../controllers/userController";
+
+import { getUpload, postUpload } from "../controllers/videoController";
+
 import {
   protectorMiddleware,
   publicOnlyMiddleware,
   avatarUpload,
+  videoUpload,
 } from "../middlewares";
 
 const userRouter = express.Router();
@@ -32,5 +36,11 @@ userRouter
 userRouter.get("/github/finish", publicOnlyMiddleware, finishGithubLogin);
 
 userRouter.get("/:id", see);
+
+userRouter
+  .route("/upload")
+  .all(protectorMiddleware)
+  .get(getUpload)
+  .post(videoUpload.fields([{ name: "video" }, { name: "thumb" }]), postUpload);
 
 export default userRouter;
