@@ -7,7 +7,7 @@ mixin video(info)
         div.video-mixin__data
             
             
-            img.header__avatar(src="/" + info.owner.avatarUrl).video-user__data
+            img.header__avatar(src=info.owner.avatarUrl).video-user__data
             span.video-mixin__title=info.title
             div.video-mixin__meta
                 span Seller: #{info.owner.name}  
